@@ -1,0 +1,312 @@
+/* Raghavtracker — calendar styles. .cal-* classes only, tokens from base.css. */
+
+/* ---------- header ---------- */
+
+.cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cal-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.cal-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.cal-nav-btn {
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px 11px;
+}
+
+.cal-nav-today {
+  font-size: 13px;
+  padding: 4px 11px;
+}
+
+/* ---------- weekday header + grid ---------- */
+
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.cal-wd {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+/* ---------- day cells ---------- */
+
+.cal-day {
+  font: inherit;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2px;
+  aspect-ratio: 1 / 0.85;
+  min-width: 0;
+  overflow: hidden;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.cal-day:hover {
+  border-color: var(--ink-soft);
+}
+
+.cal-day.cal-selected {
+  border-color: var(--accent);
+}
+
+.cal-day.cal-today {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.cal-day:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* prev/next-month spill: dimmed but fully functional */
+.cal-day.cal-dim .cal-day-num,
+.cal-day.cal-dim .cal-badges {
+  opacity: 0.5;
+}
+
+/* status tints — mixed with --surface so both themes stay legible */
+.cal-day.cal-st-full {
+  background: var(--accent-soft); /* fallback if color-mix unsupported */
+  background: color-mix(in srgb, var(--good) 15%, var(--surface));
+}
+
+.cal-day.cal-st-part {
+  background: color-mix(in srgb, var(--warn) 13%, var(--surface));
+}
+
+.cal-day.cal-st-miss {
+  background: color-mix(in srgb, var(--danger) 8%, var(--surface));
+}
+
+.cal-day-num {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ---------- cell badges (small pills, not text walls) ---------- */
+
+.cal-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px;
+  min-width: 0;
+}
+
+.cal-frac {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 1px 5px;
+  border-radius: 999px;
+  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+  white-space: nowrap;
+}
+
+.cal-st-full .cal-frac { color: var(--good); }
+.cal-st-part .cal-frac { color: var(--warn); }
+.cal-st-miss .cal-frac { color: var(--danger); }
+
+.cal-badge {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 1px 5px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cal-badge-note::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-right: 3px;
+  vertical-align: 1px;
+}
+
+/* ---------- day detail panel ---------- */
+
+.cal-detail {
+  margin-top: 16px;
+}
+
+.cal-detail-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.cal-task-list,
+.cal-session-list,
+.cal-note-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cal-task {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.cal-task-check {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.cal-task-name {
+  font: inherit;
+  font-weight: 600;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cal-task-name:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.cal-task.is-done .cal-task-name {
+  color: var(--ink-soft);
+  text-decoration: line-through;
+}
+
+.cal-once {
+  flex: none;
+  margin-left: auto;
+}
+
+.cal-sub {
+  margin-top: 16px;
+}
+
+.cal-session {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  padding: 2px 2px;
+}
+
+.cal-session-task {
+  font-weight: 600;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cal-session-dur {
+  flex: none;
+  font-family: var(--mono);
+  color: var(--ink-soft);
+}
+
+.cal-note {
+  font-size: 14px;
+  padding: 2px 2px;
+}
+
+.cal-note-task {
+  font-weight: 600;
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+.cal-note-text {
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 480px) {
+  .cal-day {
+    padding: 4px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .cal-day-num {
+    font-size: 12px;
+  }
+
+  .cal-grid,
+  .cal-weekdays {
+    gap: 4px;
+  }
+
+  /* keep the done/total fraction, hide the time/note pills */
+  .cal-badge {
+    display: none;
+  }
+
+  .cal-frac {
+    font-size: 9.5px;
+    padding: 1px 4px;
+  }
+}
