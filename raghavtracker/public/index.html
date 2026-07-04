@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raghavtracker</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="tasks.css">
+  <link rel="stylesheet" href="calendar.css">
+  <link rel="stylesheet" href="timer.css">
+  <link rel="stylesheet" href="notes.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Raghav<span>tracker</span></div>
+    <nav class="tabs" role="tablist">
+      <button class="tab is-active" data-view="today" role="tab" aria-selected="true">Today</button>
+      <button class="tab" data-view="calendar" role="tab" aria-selected="false">Calendar</button>
+    </nav>
+    <div class="topbar-spacer"></div>
+  </header>
+
+  <main class="layout">
+    <div class="views">
+      <section id="view-today" class="view" aria-label="Today"></section>
+      <section id="view-calendar" class="view hidden" aria-label="Calendar"></section>
+    </div>
+    <aside id="timer-panel" aria-label="Timer"></aside>
+  </main>
+
+  <div id="drawer-backdrop" class="drawer-backdrop hidden"></div>
+  <aside id="task-detail" class="drawer hidden" role="dialog" aria-modal="true" aria-label="Task detail">
+    <button class="drawer-close js-close-drawer" aria-label="Close">×</button>
+    <div id="task-detail-body"></div>
+  </aside>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="store.js"></script>
+  <script src="tasks.js"></script>
+  <script src="calendar.js"></script>
+  <script src="timer.js"></script>
+  <script src="notes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
