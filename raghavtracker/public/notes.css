@@ -1,0 +1,202 @@
+/* Raghavtracker — task-detail drawer body (notes module). .nt-* only. */
+
+.nt-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 4px;
+}
+
+/* ---------- header ---------- */
+
+.nt-header {
+  padding-right: 34px; /* clear the drawer's absolute close button */
+}
+
+.nt-title {
+  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.nt-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.nt-pill-archived {
+  background: var(--bg);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+}
+
+/* ---------- stats strip ---------- */
+
+.nt-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.nt-stat {
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.nt-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.nt-stat-value--text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding-top: 3px;
+}
+
+.nt-stat-value--good {
+  color: var(--good);
+}
+
+.nt-stat-label {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---------- quick actions ---------- */
+
+.nt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.nt-btn-done.is-done {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.nt-btn-archive {
+  margin-left: auto;
+}
+
+/* ---------- notes ---------- */
+
+.nt-note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.nt-note-input {
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  resize: none;
+  min-height: 58px;   /* ~2 rows */
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.nt-note-input::placeholder {
+  color: var(--ink-soft);
+}
+
+.nt-note-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.nt-note-add {
+  align-self: flex-end;
+}
+
+.nt-note-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nt-note {
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.nt-note-text {
+  white-space: pre-wrap;      /* line breaks in notes survive */
+  overflow-wrap: anywhere;
+  font-size: 14.5px;
+}
+
+.nt-note-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.nt-note-stamp {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.nt-note-delete {
+  padding: 0 7px;
+  font-size: 16px;
+  line-height: 1.4;
+  border-radius: 6px;
+}
+
+.nt-note-delete:hover {
+  color: var(--danger);
+}
+
+.nt-notes-empty {
+  padding: 18px 8px;
+}
+
+/* ---------- recent sessions ---------- */
+
+.nt-session {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 2px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.nt-session:last-of-type {
+  border-bottom: none;
+}
+
+.nt-session-dur {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.nt-session-more {
+  font-size: 12.5px;
+  padding: 6px 2px 0;
+}
