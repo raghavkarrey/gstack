@@ -1,0 +1,12 @@
+{
+  "name": "raghavtracker",
+  "private": true,
+  "description": "Personal local-only daily tracker. Zero dependencies.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
